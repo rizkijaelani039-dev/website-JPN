@@ -5,58 +5,47 @@ const services=[
 const grid=document.getElementById('service-grid');
 if(grid) grid.innerHTML=services.map(s=>`<article class="service"><span class="num">${s[0]} / JPN SERVICE</span><h3>${s[1]}</h3><p>${s[2]}</p><a href="https://wa.me/${WA}?text=${encodeURIComponent(s[3])}" target="_blank" rel="noopener" aria-label="Konsultasi ${s[1]} melalui WhatsApp">Konsultasikan Sekarang ↗</a></article>`).join('');
 
-/* Hero cleanup + useful trust navigation + day/night mode */
 (function enhanceHomepage(){
-  const style=document.createElement('style');
-  style.textContent=`
-    .hero-actions{display:flex;align-items:stretch;gap:16px;flex-wrap:wrap}
-    .hero-actions .btn{min-height:72px;min-width:255px;flex:0 1 285px;padding:13px 18px;line-height:1.25;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px}
-    .hero-actions .btn small{display:block;font-size:10px;font-weight:500;opacity:.72}
-    .hero-actions .primary{background:#f5f8fa;color:#071521;border:1px solid rgba(255,255,255,.65)}
-    .hero-actions .residential-btn{background:#153b50;color:#f5fbff;border:1px solid #3d91bd}
-    .hero-actions .residential-btn:hover{background:#1c526c}
-    .hero-actions .primary:hover{background:#dcecf5}
-    .residential-quick{display:none!important}
-    .trust{gap:0;padding:0;background:#fff}
-    .trust a{flex:1 1 0;min-width:150px;padding:17px 14px;text-align:center;color:#647681;font-size:10px;letter-spacing:.08em;border-right:1px solid #e2e8ec;transition:.2s}
-    .trust a:last-child{border-right:0}
-    .trust a:hover{background:#eef6fa;color:#176e9e}
-    .theme-toggle{width:40px;height:40px;border:1px solid rgba(255,255,255,.25);border-radius:8px;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;font-size:17px;flex:0 0 auto}
-    .theme-toggle:hover{background:rgba(255,255,255,.1)}
-    body.light-mode{background:#f4f7f9;color:#10212d}
-    body.light-mode .hero{background:linear-gradient(120deg,#eaf4f9,#d9edf6 62%,#c9e3ef);color:#071521}
-    body.light-mode .hero h1 em{color:#315568}.light-mode .lead{color:#486372}.light-mode .slogan{color:#315568}
-    body.light-mode .trust,.light-mode .service,.light-mode .tool,.light-mode .knowledge-grid article,.light-mode .review-card{background:#fff}
-    body.light-mode .section-head>p,.light-mode .home p{color:#526a77}
-    body.light-mode .hero-card{background:rgba(255,255,255,.82);color:#10212d}
-    @media(max-width:600px){.hero-actions{gap:10px}.hero-actions .btn{min-width:0;flex:1 1 100%;min-height:64px;padding:11px 15px}.trust a{min-width:33.333%;font-size:8px;padding:12px 7px}.theme-toggle{width:34px;height:34px;font-size:15px}}
-  `;
-  document.head.appendChild(style);
+const style=document.createElement('style');
+style.textContent=`
+.hero-actions{display:flex;align-items:stretch;gap:16px;flex-wrap:wrap}.hero-actions .btn{min-height:72px;min-width:255px;flex:0 1 285px;padding:13px 18px;line-height:1.25;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px}.hero-actions .btn small{display:block;font-size:10px;font-weight:500;opacity:.72}.hero-actions .primary{background:#f5f8fa;color:#071521;border:1px solid rgba(255,255,255,.65)}.hero-actions .residential-btn{background:#153b50;color:#f5fbff;border:1px solid #3d91bd}.hero-actions .residential-btn:hover{background:#1c526c}.hero-actions .primary:hover{background:#dcecf5}.residential-quick{display:none!important}
+.trust{gap:0;padding:0;background:#fff}.trust a{flex:1 1 0;min-width:150px;padding:17px 14px;text-align:center;color:#647681;font-size:10px;letter-spacing:.08em;border-right:1px solid #e2e8ec;transition:.2s}.trust a:last-child{border-right:0}.trust a:hover{background:#eef6fa;color:#176e9e}
+.theme-toggle{width:40px;height:40px;border:1px solid rgba(255,255,255,.25);border-radius:8px;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;font-size:17px;flex:0 0 auto}.theme-toggle:hover{background:rgba(255,255,255,.1)}body.light-mode{background:#f4f7f9;color:#10212d}body.light-mode .hero{background:linear-gradient(120deg,#eaf4f9,#d9edf6 62%,#c9e3ef);color:#071521}body.light-mode .hero h1 em{color:#315568}.light-mode .lead{color:#486372}.light-mode .slogan{color:#315568}body.light-mode .trust,.light-mode .service,.light-mode .tool,.light-mode .knowledge-grid article,.light-mode .review-card{background:#fff}body.light-mode .section-head>p,.light-mode .home p{color:#526a77}body.light-mode .hero-card{background:rgba(255,255,255,.82);color:#10212d}
+.service-category-nav{display:flex;gap:9px;flex-wrap:wrap;margin:-10px 0 30px}.service-category-nav a{padding:9px 13px;border:1px solid #d6e1e7;background:#fff;border-radius:999px;color:#536a77;font-size:11px;font-weight:800;letter-spacing:.04em}.service-category-nav a:hover{border-color:#55aeea;color:#176e9e;background:#eef7fb}.service-category{scroll-margin-top:95px;margin:0 0 42px;padding:34px;background:#fff;border:1px solid #dce6eb;box-shadow:0 12px 35px rgba(7,21,33,.05)}.service-category h3{margin:0 0 8px;font-size:27px;color:#102a3a}.service-category p{margin:0;color:#687984;max-width:760px}.service-category-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:stretch}.service-category-copy{padding:4px 0}.service-category-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}.service-category-list a{padding:12px 14px;background:#f2f7fa;border:1px solid #e0e9ee;color:#31586c;font-size:12px;font-weight:800}.service-category-list a:hover{background:#e6f3f9;border-color:#9bcbe2}.area-map{position:relative;min-height:280px;background:linear-gradient(145deg,#071521,#10344a);overflow:hidden;border:1px solid #23465b}.area-map:before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(113,185,233,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(113,185,233,.08) 1px,transparent 1px);background-size:30px 30px;transform:skewY(-8deg) scale(1.2)}.area-map:after{content:'';position:absolute;left:14%;right:14%;top:18%;bottom:18%;border:2px solid rgba(113,185,233,.5);border-radius:45% 55% 50% 40%;transform:rotate(-12deg);box-shadow:0 0 0 25px rgba(85,174,234,.035),0 0 0 55px rgba(85,174,234,.025)}.map-label{position:absolute;z-index:2;color:#dff4ff;font-size:12px;font-weight:800;letter-spacing:.1em}.map-label.main{left:42%;top:43%;color:#fff}.map-label.bekasi{right:15%;bottom:27%}.map-label.jakarta{left:19%;top:31%}.map-label.bogor{left:34%;bottom:18%}.map-label.dep-ok{right:24%;top:23%}.service-category.map-area{background:#eef5f8}.service-category.map-area h3{font-size:25px}.service-category.map-area p{margin-bottom:18px}.map-badge{position:absolute;z-index:3;left:18px;bottom:16px;padding:8px 11px;background:rgba(7,21,33,.82);border:1px solid rgba(255,255,255,.16);color:#8fd3f3;font-size:10px;font-weight:800;letter-spacing:.1em}
+body.light-mode .service-category{background:#fff}.light-mode .service-category-nav a{background:#fff}.light-mode .service-category-list a{background:#f2f7fa}
+@media(max-width:900px){.service-category-grid{grid-template-columns:1fr}.area-map{min-height:240px}}@media(max-width:600px){.hero-actions{gap:10px}.hero-actions .btn{min-width:0;flex:1 1 100%;min-height:64px;padding:11px 15px}.trust a{min-width:33.333%;font-size:8px;padding:12px 7px}.theme-toggle{width:34px;height:34px;font-size:15px}.service-category{padding:22px}.service-category-list{grid-template-columns:1fr}.service-category h3{font-size:22px}.area-map{min-height:220px}}
+`;
+document.head.appendChild(style);
 
-  const header=document.querySelector('.site-header');
-  if(header && !document.querySelector('.theme-toggle')){
-    const button=document.createElement('button');
-    button.className='theme-toggle';button.type='button';button.setAttribute('aria-label','Ubah mode siang/malam');
-    const saved=localStorage.getItem('jpn-theme');
-    if(saved==='light') document.body.classList.add('light-mode');
-    button.textContent=document.body.classList.contains('light-mode')?'☀':'☾';
-    button.addEventListener('click',()=>{document.body.classList.toggle('light-mode');const light=document.body.classList.contains('light-mode');localStorage.setItem('jpn-theme',light?'light':'dark');button.textContent=light?'☀':'☾'});
-    const cta=header.querySelector('.nav-cta');
-    if(cta) header.insertBefore(button,cta); else header.appendChild(button);
-  }
+const header=document.querySelector('.site-header');
+if(header&&!document.querySelector('.theme-toggle')){const button=document.createElement('button');button.className='theme-toggle';button.type='button';button.setAttribute('aria-label','Ubah mode siang/malam');const saved=localStorage.getItem('jpn-theme');if(saved==='light')document.body.classList.add('light-mode');button.textContent=document.body.classList.contains('light-mode')?'☀':'☾';button.addEventListener('click',()=>{document.body.classList.toggle('light-mode');const light=document.body.classList.contains('light-mode');localStorage.setItem('jpn-theme',light?'light':'dark');button.textContent=light?'☀':'☾'});const cta=header.querySelector('.nav-cta');if(cta)header.insertBefore(button,cta);else header.appendChild(button)}
 
-  const trust=document.querySelector('.trust');
-  if(trust){
-    const links={
-      'Bekasi & Jabodetabek':'#contact','Industrial':'#portfolio','Commercial':'#portfolio','Residential':'#contact','Renewable Energy':'#services','Telecom':'#services'
-    };
-    [...trust.children].forEach(item=>{const label=item.textContent.trim();const a=document.createElement('a');a.href=links[label]||'#services';a.textContent=label;a.setAttribute('aria-label',`Lihat layanan ${label}`);item.replaceWith(a)});
-  }
+const servicesSection=document.getElementById('services');
+if(servicesSection&&!document.querySelector('.service-category-nav')){
+const gridEl=document.getElementById('service-grid');
+const nav=document.createElement('div');nav.className='service-category-nav';
+const cats=[['area','Bekasi & Jabodetabek'],['industrial','Industrial'],['commercial','Commercial'],['residential','Residential'],['renewable','Renewable Energy'],['telecom','Telecom']];
+nav.innerHTML=cats.map(c=>`<a href="#service-${c[0]}">${c[1]}</a>`).join('');
+const map=document.createElement('div');map.className='service-category map-area';map.id='service-area';map.innerHTML=`<div class="service-category-grid"><div class="service-category-copy"><p class="eyebrow">SERVICE AREA</p><h3>Bekasi & Jabodetabek</h3><p>Area layanan utama JPN mencakup Bekasi dan wilayah Jabodetabek untuk pekerjaan project, engineering, maintenance dan home service sesuai kebutuhan lapangan.</p><div class="service-category-list"><a href="#contact">Survey & Konsultasi ↗</a><a href="#portfolio">Lihat Portfolio ↗</a></div></div><div class="area-map" role="img" aria-label="Ilustrasi area layanan Bekasi dan Jabodetabek"><span class="map-label jakarta">JAKARTA</span><span class="map-label dep-ok">DEPOK</span><span class="map-label bekasi">BEKASI</span><span class="map-label bogor">BOGOR</span><span class="map-label main">JPN AREA</span><span class="map-badge">BEKASI • JABODETABEK</span></div></div>`;
+const categoryData={
+industrial:['Industrial','Solusi kelistrikan dan engineering untuk fasilitas industri, warehouse, manufacturing dan area operasional.',['Electrical Installation','Panel & Distribution','Thermal Inspection','Maintenance Contract']],
+commercial:['Commercial','Solusi untuk gedung, ruko, retail, kantor, restoran, cafe dan properti komersial.',['Electrical Installation','Panel & Distribution','PJU & Lighting','Maintenance Contract']],
+residential:['Residential','Layanan kelistrikan rumah, peningkatan instalasi, grounding, lighting dan kebutuhan teknis hunian.',['Home Electrical Service','Grounding System','Lightning Protection','EV Charger']],
+renewable:['Renewable Energy','Solusi energi terbarukan untuk membantu kebutuhan energi dan efisiensi operasional.',['Solar PV / PLTS','EV Charger','Engineering Consultation','Maintenance Contract']],
+telecom:['Telecom','Pekerjaan infrastruktur telecom dan fiber optic dari pulling hingga testing dan commissioning.',['Telecom & Fiber Optic','Engineering Consultation','Maintenance Contract','Technical Inspection']]
+};
+const blocks=[map];
+Object.entries(categoryData).forEach(([key,data])=>{const el=document.createElement('div');el.className='service-category';el.id=`service-${key}`;el.innerHTML=`<p class="eyebrow">JPN SERVICE CATEGORY</p><h3>${data[0]}</h3><p>${data[1]}</p><div class="service-category-list">${data[2].map(name=>{const s=services.find(x=>x[1]===name);return s?`<a href="https://wa.me/${WA}?text=${encodeURIComponent(s[3])}" target="_blank" rel="noopener">${name} ↗</a>`:`<a href="#service-${key}">${name}</a>`}).join('')}</div>`;blocks.push(el)});
+servicesSection.insertBefore(nav,gridEl);blocks.reverse().forEach(el=>servicesSection.insertBefore(el,gridEl));
+}
+
+const trust=document.querySelector('.trust');
+if(trust){const links={'Bekasi & Jabodetabek':'#service-area','Industrial':'#service-industrial','Commercial':'#service-commercial','Residential':'#service-residential','Renewable Energy':'#service-renewable','Telecom':'#service-telecom'};[...trust.children].forEach(item=>{const label=item.textContent.trim();const a=document.createElement('a');a.href=links[label]||'#services';a.textContent=label;a.setAttribute('aria-label',`Lihat layanan ${label}`);item.replaceWith(a)})}
 })();
 
 function num(id){return Number(document.getElementById(id)?.value)||0}
 function fmt(v,d=1){return new Intl.NumberFormat('id-ID',{maximumFractionDigits:d}).format(v)}
-function calcMCB(){const p=num('mcbPower'),v=num('mcbVolt'),pf=num('mcbPf'),sf=num('mcbSf')/100;if(!p||!v||!pf)return;const nominal=p/(v*pf),design=nominal*(1+sf);const sizes=[2,4,6,10,16,20,25,32,40,50,63];const mcb=sizes.find(x=>x>=design)||'di atas 63';const result=document.getElementById('mcbResult');if(result) result.innerHTML=`Arus nominal: ${fmt(nominal,2)} A<br>Arus desain setelah safety factor: ${fmt(design,2)} A<br><strong>Rekomendasi MCB awal: ${mcb} A</strong><br><small>Verifikasi akhir wajib dengan KHA kabel, karakteristik beban, breaking capacity dan koordinasi proteksi.</small>`}
-function calcSolar(){const k=num('solarKwh'),psh=num('solarPsh'),der=num('solarDerate')/100;if(!k||!psh||!der)return;const kwp=k/(psh*30*der);const result=document.getElementById('solarResult');if(result) result.innerHTML=`Estimasi kebutuhan PLTS: <strong>${fmt(kwp,2)} kWp</strong><br><small>Estimasi awal dari konsumsi bulanan, peak sun hours dan derating sistem.</small>`}
-function calc3ph(){const p=num('threePower'),v=num('threeVolt'),pf=num('threePf');if(!p||!v||!pf)return;const a=p/(Math.sqrt(3)*v*pf);const result=document.getElementById('threeResult');if(result) result.innerHTML=`Arus 3 phase: <strong>${fmt(a,2)} A</strong><br><small>Rumus: P / (√3 × V × PF). Untuk desain final pertimbangkan ketidakseimbangan beban dan faktor instalasi.</small>`}
+function calcMCB(){const p=num('mcbPower'),v=num('mcbVolt'),pf=num('mcbPf'),sf=num('mcbSf')/100;if(!p||!v||!pf)return;const nominal=p/(v*pf),design=nominal*(1+sf);const sizes=[2,4,6,10,16,20,25,32,40,50,63];const mcb=sizes.find(x=>x>=design)||'di atas 63';const result=document.getElementById('mcbResult');if(result)result.innerHTML=`Arus nominal: ${fmt(nominal,2)} A<br>Arus desain setelah safety factor: ${fmt(design,2)} A<br><strong>Rekomendasi MCB awal: ${mcb} A</strong><br><small>Verifikasi akhir wajib dengan KHA kabel, karakteristik beban, breaking capacity dan koordinasi proteksi.</small>`}
+function calcSolar(){const k=num('solarKwh'),psh=num('solarPsh'),der=num('solarDerate')/100;if(!k||!psh||!der)return;const kwp=k/(psh*30*der);const result=document.getElementById('solarResult');if(result)result.innerHTML=`Estimasi kebutuhan PLTS: <strong>${fmt(kwp,2)} kWp</strong><br><small>Estimasi awal dari konsumsi bulanan, peak sun hours dan derating sistem.</small>`}
+function calc3ph(){const p=num('threePower'),v=num('threeVolt'),pf=num('threePf');if(!p||!v||!pf)return;const a=p/(Math.sqrt(3)*v*pf);const result=document.getElementById('threeResult');if(result)result.innerHTML=`Arus 3 phase: <strong>${fmt(a,2)} A</strong><br><small>Rumus: P / (√3 × V × PF). Untuk desain final pertimbangkan ketidakseimbangan beban dan faktor instalasi.</small>`}
 calcMCB();calcSolar();calc3ph();
