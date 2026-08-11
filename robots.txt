@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.jayaprimanusantara.com/sitemap.xml
+Sitemap: https://rizkijaelani039-dev.github.io/website-JPN/sitemap.xml
