@@ -4,6 +4,56 @@ const services=[
 ];
 const grid=document.getElementById('service-grid');
 if(grid) grid.innerHTML=services.map(s=>`<article class="service"><span class="num">${s[0]} / JPN SERVICE</span><h3>${s[1]}</h3><p>${s[2]}</p><a href="https://wa.me/${WA}?text=${encodeURIComponent(s[3])}" target="_blank" rel="noopener" aria-label="Konsultasi ${s[1]} melalui WhatsApp">Konsultasikan Sekarang ↗</a></article>`).join('');
+
+/* Hero cleanup + useful trust navigation + day/night mode */
+(function enhanceHomepage(){
+  const style=document.createElement('style');
+  style.textContent=`
+    .hero-actions{display:flex;align-items:stretch;gap:16px;flex-wrap:wrap}
+    .hero-actions .btn{min-height:72px;min-width:255px;flex:0 1 285px;padding:13px 18px;line-height:1.25;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px}
+    .hero-actions .btn small{display:block;font-size:10px;font-weight:500;opacity:.72}
+    .hero-actions .primary{background:#f5f8fa;color:#071521;border:1px solid rgba(255,255,255,.65)}
+    .hero-actions .residential-btn{background:#153b50;color:#f5fbff;border:1px solid #3d91bd}
+    .hero-actions .residential-btn:hover{background:#1c526c}
+    .hero-actions .primary:hover{background:#dcecf5}
+    .residential-quick{display:none!important}
+    .trust{gap:0;padding:0;background:#fff}
+    .trust a{flex:1 1 0;min-width:150px;padding:17px 14px;text-align:center;color:#647681;font-size:10px;letter-spacing:.08em;border-right:1px solid #e2e8ec;transition:.2s}
+    .trust a:last-child{border-right:0}
+    .trust a:hover{background:#eef6fa;color:#176e9e}
+    .theme-toggle{width:40px;height:40px;border:1px solid rgba(255,255,255,.25);border-radius:8px;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;font-size:17px;flex:0 0 auto}
+    .theme-toggle:hover{background:rgba(255,255,255,.1)}
+    body.light-mode{background:#f4f7f9;color:#10212d}
+    body.light-mode .hero{background:linear-gradient(120deg,#eaf4f9,#d9edf6 62%,#c9e3ef);color:#071521}
+    body.light-mode .hero h1 em{color:#315568}.light-mode .lead{color:#486372}.light-mode .slogan{color:#315568}
+    body.light-mode .trust,.light-mode .service,.light-mode .tool,.light-mode .knowledge-grid article,.light-mode .review-card{background:#fff}
+    body.light-mode .section-head>p,.light-mode .home p{color:#526a77}
+    body.light-mode .hero-card{background:rgba(255,255,255,.82);color:#10212d}
+    @media(max-width:600px){.hero-actions{gap:10px}.hero-actions .btn{min-width:0;flex:1 1 100%;min-height:64px;padding:11px 15px}.trust a{min-width:33.333%;font-size:8px;padding:12px 7px}.theme-toggle{width:34px;height:34px;font-size:15px}}
+  `;
+  document.head.appendChild(style);
+
+  const header=document.querySelector('.site-header');
+  if(header && !document.querySelector('.theme-toggle')){
+    const button=document.createElement('button');
+    button.className='theme-toggle';button.type='button';button.setAttribute('aria-label','Ubah mode siang/malam');
+    const saved=localStorage.getItem('jpn-theme');
+    if(saved==='light') document.body.classList.add('light-mode');
+    button.textContent=document.body.classList.contains('light-mode')?'☀':'☾';
+    button.addEventListener('click',()=>{document.body.classList.toggle('light-mode');const light=document.body.classList.contains('light-mode');localStorage.setItem('jpn-theme',light?'light':'dark');button.textContent=light?'☀':'☾'});
+    const cta=header.querySelector('.nav-cta');
+    if(cta) header.insertBefore(button,cta); else header.appendChild(button);
+  }
+
+  const trust=document.querySelector('.trust');
+  if(trust){
+    const links={
+      'Bekasi & Jabodetabek':'#contact','Industrial':'#portfolio','Commercial':'#portfolio','Residential':'#contact','Renewable Energy':'#services','Telecom':'#services'
+    };
+    [...trust.children].forEach(item=>{const label=item.textContent.trim();const a=document.createElement('a');a.href=links[label]||'#services';a.textContent=label;a.setAttribute('aria-label',`Lihat layanan ${label}`);item.replaceWith(a)});
+  }
+})();
+
 function num(id){return Number(document.getElementById(id)?.value)||0}
 function fmt(v,d=1){return new Intl.NumberFormat('id-ID',{maximumFractionDigits:d}).format(v)}
 function calcMCB(){const p=num('mcbPower'),v=num('mcbVolt'),pf=num('mcbPf'),sf=num('mcbSf')/100;if(!p||!v||!pf)return;const nominal=p/(v*pf),design=nominal*(1+sf);const sizes=[2,4,6,10,16,20,25,32,40,50,63];const mcb=sizes.find(x=>x>=design)||'di atas 63';const result=document.getElementById('mcbResult');if(result) result.innerHTML=`Arus nominal: ${fmt(nominal,2)} A<br>Arus desain setelah safety factor: ${fmt(design,2)} A<br><strong>Rekomendasi MCB awal: ${mcb} A</strong><br><small>Verifikasi akhir wajib dengan KHA kabel, karakteristik beban, breaking capacity dan koordinasi proteksi.</small>`}
