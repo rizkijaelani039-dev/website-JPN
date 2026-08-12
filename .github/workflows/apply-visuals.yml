@@ -13,12 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Attach visual stylesheet before base rules
+      - name: Move visual import to top
         run: |
-          if ! grep -q 'assets/visuals/visuals.css' styles.css; then
-            { printf '@import url("assets/visuals/visuals.css");\n'; cat styles.css; } > styles.css.tmp
-            mv styles.css.tmp styles.css
-          fi
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('styles.css')
+          s=p.read_text()
+          import_line='@import url("assets/visuals/visuals.css");'
+          s=s.replace(import_line,'').lstrip('\n')
+          p.write_text(import_line+'\n'+s)
+          PY
       - name: Commit visual stylesheet
         run: |
           git config user.name 'github-actions[bot]'
