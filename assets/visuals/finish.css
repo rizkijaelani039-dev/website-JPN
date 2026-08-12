@@ -8,79 +8,47 @@
   --jpn-silver:#aebdc7;
 }
 
-/* Global canvas: no more plain white page */
 body{background:linear-gradient(180deg,#dcecf4 0%,#eef7fb 22%,#d8edf6 52%,#eef7fb 78%,#d7eaf3 100%)!important}
-
-/* Hero visual: deep smart-engineering blue */
 .hero-art{background-color:#0a3048!important;background-image:linear-gradient(135deg,rgba(5,35,53,.15),rgba(10,125,185,.18)),url("hero-engineering.svg")!important;background-size:cover!important;background-position:center!important;border:1px solid rgba(99,199,238,.75)!important;box-shadow:0 25px 70px rgba(4,39,58,.32),inset 0 0 80px rgba(99,199,238,.10)!important}
-
-/* Services section becomes a designed blue field */
 #services{max-width:none!important;padding-left:max(24px,calc((100% - 1180px)/2))!important;padding-right:max(24px,calc((100% - 1180px)/2))!important;background:linear-gradient(145deg,#d5edf7 0%,#eef8fc 48%,#cce7f2 100%)!important;position:relative;overflow:hidden}
 #services:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(12,102,145,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(12,102,145,.055) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),transparent 92%)}
 #services>*{position:relative;z-index:1}
-#services .section-head h2{color:#082a40!important}
-#services .section-head h2 span{color:#087fbd!important}
-#services .section-head>p{color:#466777!important}
-
-/* Service cards: blue/silver smart modules */
+#services .section-head h2{color:#082a40!important}#services .section-head h2 span{color:#087fbd!important}#services .section-head>p{color:#466777!important}
 .service-grid{gap:18px!important}
 .service{background:linear-gradient(145deg,#f9fdff 0%,#e5f5fb 52%,#c9e8f4 100%)!important;border:1px solid rgba(74,158,197,.42)!important;box-shadow:0 12px 32px rgba(6,65,91,.12)!important;position:relative!important;overflow:hidden!important}
-.service:after{box-shadow:0 8px 22px rgba(0,74,111,.34)!important}
 .service:hover{background:linear-gradient(145deg,#ffffff 0%,#d8f2fc 55%,#b9dfef 100%)!important;transform:translateY(-6px)!important;box-shadow:0 20px 45px rgba(4,71,101,.20)!important}
-.service h3{color:#062d45!important}
-.service p{color:#456879!important}
-.service .num{color:#0875ad!important}
-
-/* Category blocks: each gets a strong visual identity */
+.service h3{color:#062d45!important}.service p{color:#456879!important}.service .num{color:#0875ad!important}
 .service-category{background:linear-gradient(145deg,#eaf8fd 0%,#ccebf5 48%,#a9d8e9 100%)!important;border:1px solid #75c5e6!important;box-shadow:0 18px 50px rgba(3,65,92,.16)!important;position:relative!important;overflow:hidden!important}
 .service-category:after{content:"";position:absolute;right:-100px;top:-120px;width:330px;height:330px;border:1px solid rgba(255,255,255,.65);border-radius:50%;box-shadow:0 0 0 30px rgba(255,255,255,.12),0 0 0 70px rgba(255,255,255,.08);pointer-events:none;z-index:1}
 .service-category:before{width:100%!important;min-width:100%!important;height:330px!important;display:block!important;margin:0 0 28px!important;background-color:#5bb5d8!important;background-image:linear-gradient(135deg,rgba(7,35,52,.05),rgba(255,255,255,.08)),var(--category-visual)!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;border-radius:18px!important;border:1px solid rgba(255,255,255,.75)!important;box-shadow:inset 0 0 45px rgba(6,67,91,.16),0 14px 32px rgba(3,62,88,.16)!important;position:relative!important;z-index:2}
-#service-area:before{--category-visual:url("hero-engineering.svg")!important}
-#service-industrial:before{--category-visual:url("industrial.svg")!important}
-#service-commercial:before{--category-visual:url("commercial.svg")!important}
-#service-residential:before{--category-visual:url("residential.svg")!important}
-#service-renewable:before{--category-visual:url("renewable-energy.svg")!important}
-#service-telecom:before{--category-visual:url("telecom-engineering.svg")!important}
-.service-category-copy,.service-category>p,.service-category>h3,.service-category>.service-category-grid,.service-category-list{position:relative!important;z-index:3!important}
-.service-category h3{color:#062a40!important}
-.service-category>p{color:#365d70!important}
-.service-category-list a{background:linear-gradient(145deg,#0a4770,#087fbd)!important;color:#fff!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:0 7px 18px rgba(5,72,105,.18)!important}
-.service-category-list a:hover{background:linear-gradient(145deg,#087fbd,#3db8e5)!important;transform:translateY(-2px)!important}
-
-/* Home service section */
-.split.home{max-width:none!important;padding:90px max(24px,calc((100% - 1180px)/2))!important;margin:0!important;background:linear-gradient(135deg,#e8f8fd,#c8e8f3 58%,#e0f3f9)!important}
-.home-art{background-color:#0b3d58!important;background-image:linear-gradient(135deg,rgba(4,40,59,.08),rgba(24,151,207,.16)),url("home-service.svg")!important;background-size:cover!important;background-position:center!important;border:1px solid #6cc7ea!important;box-shadow:0 24px 55px rgba(3,57,81,.20)!important}
-
-/* Knowledge becomes a blue technical zone */
-.knowledge{max-width:none!important;background:linear-gradient(145deg,#0b2b41 0%,#0e5273 55%,#082238 100%)!important;color:#fff!important;position:relative;overflow:hidden}
-.knowledge:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(111,201,236,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(111,201,236,.08) 1px,transparent 1px);background-size:44px 44px}
-.knowledge>*{position:relative;z-index:2}
-.knowledge .section-head h2{color:#fff!important}.knowledge .section-head h2 span{color:#79d3f6!important}.knowledge .section-head>p{color:#c0d9e4!important}
-.knowledge:before{height:300px!important;background-color:#0b4260!important;background-image:linear-gradient(135deg,rgba(5,35,53,.05),rgba(99,199,238,.12)),url("telecom-engineering.svg")!important;background-size:cover!important;border:1px solid rgba(112,207,242,.55)!important;box-shadow:0 22px 55px rgba(0,0,0,.22)!important}
-.knowledge-grid>a,.knowledge-grid>article{background:linear-gradient(145deg,#f8fdff,#dceff7)!important;border:1px solid #7cc8e6!important;box-shadow:0 12px 30px rgba(0,0,0,.14)!important}
-.knowledge-grid>a:hover,.knowledge-grid>article:hover{background:linear-gradient(145deg,#fff,#cdeaf5)!important}
-
-/* Trust strip */
+#service-area:before{--category-visual:url("hero-engineering.svg")!important}#service-industrial:before{--category-visual:url("industrial.svg")!important}#service-commercial:before{--category-visual:url("commercial.svg")!important}#service-residential:before{--category-visual:url("residential.svg")!important}#service-renewable:before{--category-visual:url("renewable-energy.svg")!important}#service-telecom:before{--category-visual:url("telecom-engineering.svg")!important}
+.service-category-copy,.service-category>p,.service-category>h3,.service-category>.service-category-grid,.service-category-list{position:relative!important;z-index:3!important}.service-category h3{color:#062a40!important}.service-category>p{color:#365d70!important}
+.service-category-list a{background:linear-gradient(145deg,#0a4770,#087fbd)!important;color:#fff!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:0 7px 18px rgba(5,72,105,.18)!important}.service-category-list a:hover{background:linear-gradient(145deg,#087fbd,#3db8e5)!important;transform:translateY(-2px)!important}
+.split.home{max-width:none!important;padding:90px max(24px,calc((100% - 1180px)/2))!important;margin:0!important;background:linear-gradient(135deg,#e8f8fd,#c8e8f3 58%,#e0f3f9)!important}.home-art{background-color:#0b3d58!important;background-image:linear-gradient(135deg,rgba(4,40,59,.08),rgba(24,151,207,.16)),url("home-service.svg")!important;background-size:cover!important;background-position:center!important;border:1px solid #6cc7ea!important;box-shadow:0 24px 55px rgba(3,57,81,.20)!important}
+.knowledge{max-width:none!important;background:linear-gradient(145deg,#0b2b41 0%,#0e5273 55%,#082238 100%)!important;color:#fff!important;position:relative;overflow:hidden}.knowledge:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(111,201,236,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(111,201,236,.08) 1px,transparent 1px);background-size:44px 44px}.knowledge>*{position:relative;z-index:2}.knowledge .section-head h2{color:#fff!important}.knowledge .section-head h2 span{color:#79d3f6!important}.knowledge .section-head>p{color:#c0d9e4!important}.knowledge:before{height:300px!important;background-color:#0b4260!important;background-image:linear-gradient(135deg,rgba(5,35,53,.05),rgba(99,199,238,.12)),url("telecom-engineering.svg")!important;background-size:cover!important;border:1px solid rgba(112,207,242,.55)!important;box-shadow:0 22px 55px rgba(0,0,0,.22)!important}.knowledge-grid>a,.knowledge-grid>article{background:linear-gradient(145deg,#f8fdff,#dceff7)!important;border:1px solid #7cc8e6!important;box-shadow:0 12px 30px rgba(0,0,0,.14)!important}.knowledge-grid>a:hover,.knowledge-grid>article:hover{background:linear-gradient(145deg,#fff,#cdeaf5)!important}
 .trust{background:linear-gradient(90deg,#07263a,#0b587b,#07263a)!important;color:#e5f8ff!important;border:0!important;box-shadow:0 8px 25px rgba(2,39,58,.18)!important}
-.trust a{color:#dff5ff!important;border-color:rgba(255,255,255,.14)!important}.trust a:hover{background:rgba(255,255,255,.10)!important;color:#fff!important}
+#tools{background:linear-gradient(145deg,#e6f6fb,#c9e8f2 55%,#eaf8fc)!important;max-width:none!important;padding-left:max(24px,calc((100% - 1180px)/2))!important;padding-right:max(24px,calc((100% - 1180px)/2))!important}.tool{background:linear-gradient(145deg,#ffffff,#e1f2f8)!important;border:1px solid #8ccde4!important;box-shadow:0 12px 30px rgba(4,69,96,.10)!important}.tool .result{background:linear-gradient(145deg,#d7f2fb,#c1e7f3)!important;border:1px solid #9ed5e8!important}
+#portfolio{background:linear-gradient(145deg,#061c2b,#0b354d 60%,#072238)!important}.reviews{background:linear-gradient(145deg,#eaf8fc,#cfeaf3)!important;max-width:none!important;padding-left:max(24px,calc((100% - 1180px)/2))!important;padding-right:max(24px,calc((100% - 1180px)/2))!important}.review-card{background:linear-gradient(145deg,#fff,#e0f3f8)!important;border:1px solid #8ac9df!important}
+.article-wrap{background:linear-gradient(180deg,#d9edf5,#f4fafc)!important;border-left:1px solid rgba(78,160,196,.2);border-right:1px solid rgba(78,160,196,.2)}.article-body{background:linear-gradient(145deg,#ffffff,#edf8fb)!important;border-color:#9bcfe1!important;box-shadow:0 16px 45px rgba(4,60,84,.10)!important}.article-toc{background:linear-gradient(145deg,#dff3fa,#c5e6f0)!important;border-color:#8cc8df!important}
 
-/* Tools / calculators */
-#tools{background:linear-gradient(145deg,#e6f6fb,#c9e8f2 55%,#eaf8fc)!important;max-width:none!important;padding-left:max(24px,calc((100% - 1180px)/2))!important;padding-right:max(24px,calc((100% - 1180px)/2))!important}
-.tool{background:linear-gradient(145deg,#ffffff,#e1f2f8)!important;border:1px solid #8ccde4!important;box-shadow:0 12px 30px rgba(4,69,96,.10)!important}
-.tool .result{background:linear-gradient(145deg,#d7f2fb,#c1e7f3)!important;border:1px solid #9ed5e8!important}
+/* JPN NAVY PAGE/CARD MODE — requested final direction */
+body{background:#061521!important}
+.section{background:linear-gradient(145deg,#071a29 0%,#0a263a 52%,#071724 100%)!important;color:#fff!important;position:relative;overflow:hidden}
+.section:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(99,199,238,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(99,199,238,.055) 1px,transparent 1px);background-size:48px 48px;opacity:.55}
+.section>*{position:relative;z-index:1}.section-head h2{color:#fff!important}.section-head>p{color:#b5c9d5!important}
+#services,#tools,.reviews{background:linear-gradient(145deg,#071a29,#0b2e46 55%,#071824)!important}
+#services .section-head h2{color:#fff!important}#services .section-head h2 span{color:#69c9ef!important}#services .section-head>p{color:#b7ceda!important}
+.service{background:linear-gradient(145deg,#0d2c42,#123f5a 55%,#0b2436)!important;border:1px solid rgba(110,201,235,.45)!important;color:#fff!important;box-shadow:0 16px 38px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07)!important}
+.service h3{color:#fff!important}.service p{color:#b8ccd7!important}.service .num{color:#6dcaf0!important}.service a{color:#75d1f3!important}
+.service-category{background:linear-gradient(145deg,#071a29,#0b3550 55%,#061a28)!important;border:1px solid rgba(99,199,238,.55)!important;color:#fff!important;box-shadow:0 22px 55px rgba(0,0,0,.32)!important}.service-category h3{color:#fff!important}.service-category>p{color:#bdd2dc!important}
+.service-category-list a{background:linear-gradient(145deg,#07527c,#087fbd)!important;color:#fff!important;border:1px solid rgba(118,213,246,.45)!important}
+.tool{background:linear-gradient(145deg,#0d2b40,#123e58 55%,#0a2234)!important;color:#fff!important;border:1px solid rgba(105,196,229,.42)!important}.tool h3{color:#fff!important}.tool label{color:#b8ccd7!important}.tool input{background:#071a29!important;color:#fff!important;border-color:#38657c!important}.tool .result{background:linear-gradient(145deg,#0b3853,#0d5578)!important;color:#dff7ff!important;border-color:#4b94b5!important}
+.knowledge{background:linear-gradient(145deg,#061724,#092d45 55%,#05131e)!important}.knowledge-grid>a,.knowledge-grid>article{background:linear-gradient(145deg,#0d2d43,#123f5a 55%,#0a2435)!important;color:#fff!important;border:1px solid rgba(105,201,235,.42)!important}.knowledge-grid h3{color:#fff!important}.knowledge-grid p{color:#b8ccd7!important}.knowledge-grid b,.knowledge-grid a span{color:#70cdf1!important}
+.reviews{color:#fff!important}.reviews .review-score{background:linear-gradient(145deg,#0d3650,#07557b)!important;border:1px solid rgba(112,208,242,.4)!important}.review-card{background:linear-gradient(145deg,#0d2c42,#123e58)!important;color:#fff!important;border:1px solid rgba(105,196,229,.4)!important}.review-card blockquote{color:#e6f5fb!important}.review-card small{color:#a9c2cf!important}
 
-/* Portfolio */
-#portfolio{background:linear-gradient(145deg,#061c2b,#0b354d 60%,#072238)!important}
+/* Individual service/category pages: the page itself is navy, not a white canvas */
+.service-page,.category-page,.page-shell,.service-detail,.category-detail{background:linear-gradient(145deg,#061521 0%,#0a2b42 52%,#061723 100%)!important;color:#fff!important}
+.service-page .page-card,.category-page .page-card,.page-shell .page-card,.service-detail .page-card,.category-detail .page-card{background:linear-gradient(145deg,#0b2639,#0e3b56)!important;color:#fff!important;border:1px solid rgba(105,201,235,.42)!important;box-shadow:0 22px 55px rgba(0,0,0,.30)!important}
 
-/* Reviews */
-.reviews{background:linear-gradient(145deg,#eaf8fc,#cfeaf3)!important;max-width:none!important;padding-left:max(24px,calc((100% - 1180px)/2))!important;padding-right:max(24px,calc((100% - 1180px)/2))!important}
-.review-card{background:linear-gradient(145deg,#fff,#e0f3f8)!important;border:1px solid #8ac9df!important}
-
-/* Article pages */
-.article-wrap{background:linear-gradient(180deg,#d9edf5,#f4fafc)!important;border-left:1px solid rgba(78,160,196,.2);border-right:1px solid rgba(78,160,196,.2)}
-.article-body{background:linear-gradient(145deg,#ffffff,#edf8fb)!important;border-color:#9bcfe1!important;box-shadow:0 16px 45px rgba(4,60,84,.10)!important}
-.article-toc{background:linear-gradient(145deg,#dff3fa,#c5e6f0)!important;border-color:#8cc8df!important}
-
-/* Mobile */
 @media(max-width:900px){.service-category:before{height:270px!important}.knowledge:before{height:230px!important}}
 @media(max-width:600px){#services,#tools,#portfolio,.knowledge,.reviews{padding-left:20px!important;padding-right:20px!important}.service-category{padding:20px!important}.service-category:before{height:215px!important}.knowledge:before{height:175px!important}.split.home{padding:60px 20px!important}}
