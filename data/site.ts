@@ -1,0 +1,29 @@
+export const site = {
+  name: 'CV. Jaya Prima Nusantara',
+  brand: 'JPN',
+  tagline: 'Powered by Energy, Driven by Innovation',
+  email: 'primansntr@gmail.com',
+  location: 'Bekasi, Indonesia',
+  whatsapp: '',
+};
+
+export const services = [
+  { slug: 'electrical', title: 'Electrical', description: 'Solusi instalasi, maintenance, panel, protection dan troubleshooting sistem kelistrikan.', visual: '/visuals/electrical.svg', items: ['Electrical Installation','Electrical Maintenance','Panel Installation','Panel Modification','Panel Manufacturing','Distribution Panel','ATS / AMF System','Electrical Troubleshooting','Grounding System','Lightning Protection','PJU Installation','Power Installation','Transformer Support','Electrical Testing'] },
+  { slug: 'renewable-energy', title: 'Renewable Energy', description: 'Perencanaan dan instalasi solusi energi surya serta energy storage sesuai kebutuhan.', visual: '/visuals/solar.svg', items: ['PLTS On Grid','PLTS Off Grid','Solar Panel Installation','Solar System Design','Solar Inverter','Battery Energy Storage','Solar Maintenance','Energy Efficiency'] },
+  { slug: 'telecom', title: 'Telecom', description: 'Infrastruktur fiber optic, telecom, server room dan kebutuhan jaringan teknis.', visual: '/visuals/telecom.svg', items: ['Fiber Optic Installation','Fiber Optic Cable Pulling','Telecom Infrastructure','ODP Installation','Subduct Installation','Network Infrastructure','Server Room','Data Center Infrastructure','Telecom Maintenance'] },
+  { slug: 'ev-charger', title: 'EV Charger', description: 'Persiapan kelistrikan dan instalasi EV Charger untuk rumah, kantor, komersial dan industri.', visual: '/visuals/ev-charger.svg', items: ['Home','Office','Commercial','Industrial','Electrical Assessment','Charger Installation','Testing & Commissioning'] },
+  { slug: 'grounding', title: 'Grounding', description: 'Instalasi dan perbaikan sistem grounding untuk mendukung keselamatan dan keandalan sistem.', visual: '/visuals/grounding.svg', items: ['Grounding Installation','Grounding Measurement','Panel Grounding','Equipment Grounding','Grounding Troubleshooting'] },
+  { slug: 'plts', title: 'PLTS', description: 'Solusi PLTS mulai dari assessment, system design, installation hingga maintenance.', visual: '/visuals/solar.svg', items: ['PLTS On Grid','PLTS Off Grid','Solar Panel','Inverter','Battery','Energy Storage','System Design','Installation','Maintenance'] },
+];
+
+export const faqs = [
+  ['Apakah JPN melayani instalasi electrical untuk industri?', 'Ya. JPN menyediakan layanan electrical yang dapat disesuaikan dengan kebutuhan proyek industri, komersial maupun hunian.'],
+  ['Apakah JPN melayani maintenance panel?', 'Ya. Layanan electrical JPN mencakup maintenance, inspection, troubleshooting dan pekerjaan terkait panel sesuai kebutuhan proyek.'],
+  ['Apakah JPN melayani pemasangan EV Charger?', 'Ya. JPN menyediakan assessment kebutuhan listrik dan instalasi EV Charger untuk rumah, kantor, komersial dan industri.'],
+  ['Apakah JPN melayani PLTS?', 'Ya. JPN menyediakan solusi PLTS On Grid dan Off Grid serta system design, installation dan maintenance.'],
+  ['Apakah JPN melayani fiber optic?', 'Ya. Layanan Telecom mencakup instalasi dan pulling fiber optic serta infrastruktur jaringan terkait.'],
+  ['Area mana saja yang dilayani JPN?', 'JPN berfokus pada kebutuhan proyek di Bekasi dan area Jabodetabek. Ketersediaan pekerjaan dikonfirmasi berdasarkan kebutuhan proyek.'],
+  ['Bagaimana cara meminta quotation?', 'Hubungi JPN melalui kanal kontak yang tersedia dan sampaikan kebutuhan proyek agar dapat dilakukan pembahasan lebih lanjut.'],
+];
+
+export const projects: never[] = [];
