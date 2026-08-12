@@ -46,3 +46,18 @@ html body #services .service h3{position:relative!important;z-index:4!important;
 html body #services .service p{position:relative!important;z-index:4!important;font-size:13px!important;line-height:1.6!important;color:#687c87!important;margin:0 0 16px!important}
 html body #services .service a{position:relative!important;z-index:4!important;font-size:11px!important;color:#0874a9!important}
 @media(max-width:600px){html body #services .service{padding-top:125px!important}html body #services .service:before{height:105px!important}}
+
+/* FIX: service-card artwork was being replaced by a flat gradient in finish.css. Keep the existing JPN SVG artwork visible. */
+html body #services .service:before{background-color:#10384f!important;background-repeat:no-repeat!important;background-position:center!important;background-size:cover!important}
+html body #services .service:nth-child(1):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(2):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(3):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(4):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(5):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(6):before{background-image:url("commercial.svg")!important}
+html body #services .service:nth-child(7):before{background-image:url("renewable-energy.svg")!important}
+html body #services .service:nth-child(8):before{background-image:url("telecom-engineering.svg")!important}
+html body #services .service:nth-child(9):before{background-image:url("commercial.svg")!important}
+html body #services .service:nth-child(10):before{background-image:url("residential.svg")!important}
+html body #services .service:nth-child(11):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(12):before{background-image:url("hero-engineering.svg")!important}
