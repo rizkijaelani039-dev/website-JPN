@@ -1,0 +1,1 @@
+export function FAQ({items}:{items:[string,string][]}){return <div className="faq">{items.map(([q,a])=><details className="card" key={q}><summary><strong>{q}</strong></summary><p className="muted">{a}</p></details>)}</div>}
