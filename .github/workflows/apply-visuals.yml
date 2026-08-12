@@ -13,9 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Attach visual stylesheet
+      - name: Attach visual stylesheet before base rules
         run: |
-          grep -q 'assets/visuals/visuals.css' styles.css || printf '\n@import url("assets/visuals/visuals.css");\n' >> styles.css
+          if ! grep -q 'assets/visuals/visuals.css' styles.css; then
+            { printf '@import url("assets/visuals/visuals.css");\n'; cat styles.css; } > styles.css.tmp
+            mv styles.css.tmp styles.css
+          fi
       - name: Commit visual stylesheet
         run: |
           git config user.name 'github-actions[bot]'
