@@ -1,0 +1,31 @@
+/* JPN homepage hero visual fix — loaded after the existing visual system */
+.hero .hero-art{
+  background-image:url('../visuals/hero-engineering.svg') !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  background-size:cover !important;
+  background-color:#0b344b !important;
+  border:1px solid rgba(93,196,231,.55) !important;
+  box-shadow:0 24px 55px rgba(0,0,0,.30) !important;
+}
+.hero .hero-art::before{
+  display:none !important;
+  content:none !important;
+}
+.hero .hero-art::after{
+  content:none !important;
+  display:none !important;
+}
+.hero .hero-art .grid-lines,
+.hero .hero-art .tower,
+.hero .hero-art .sun,
+.hero .hero-art .hero-card{
+  display:none !important;
+}
+@media(max-width:600px){
+  .hero .hero-art{
+    background-size:cover !important;
+    min-height:270px !important;
+    height:270px !important;
+  }
+}
