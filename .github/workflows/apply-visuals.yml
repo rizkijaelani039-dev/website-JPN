@@ -13,15 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Move visual import to top
+      - name: Move visual imports to top
         run: |
           python3 - <<'PY'
           from pathlib import Path
           p=Path('styles.css')
           s=p.read_text()
-          import_line='@import url("assets/visuals/visuals.css");'
-          s=s.replace(import_line,'').lstrip('\n')
-          p.write_text(import_line+'\n'+s)
+          imports=['@import url("assets/visuals/visuals.css");','@import url("assets/visuals/finish.css");']
+          for line in imports:
+              s=s.replace(line,'')
+          p.write_text('\n'.join(imports)+'\n'+s.lstrip('\n'))
           PY
       - name: Commit visual stylesheet
         run: |
