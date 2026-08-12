@@ -18,3 +18,31 @@
 .brand-mark{position:relative;background:linear-gradient(145deg,#123d59,#087fc1)!important;border-color:#64c7ee!important;box-shadow:0 5px 18px rgba(0,126,190,.25)}.brand-mark:after{content:"•";position:absolute;right:5px;bottom:1px;color:#ffd04a;font-size:12px}
 @media(max-width:900px){.service-category#service-area:before,.service-category#service-industrial:before,.service-category#service-commercial:before,.service-category#service-residential:before,.service-category#service-renewable:before,.service-category#service-telecom:before{height:220px}.knowledge:before{height:210px}.hero-art{min-height:440px}}
 @media(max-width:600px){.hero-art{display:block;min-height:300px;border-radius:14px}.knowledge:before{height:165px;margin-bottom:35px}.service-category#service-area:before,.service-category#service-industrial:before,.service-category#service-commercial:before,.service-category#service-residential:before,.service-category#service-renewable:before,.service-category#service-telecom:before{height:165px}.article-wrap:before{height:190px;margin-bottom:28px}.service{padding-top:125px!important}.service:before{height:105px}.trust a{padding-top:38px!important}}
+
+/* RESTORE PREFERRED SERVICE-CARD COMPOSITION */
+html body #services .service{padding-top:150px!important;background:linear-gradient(180deg,#fff 0,#fff 70%,#edf8fc 100%)!important;color:#102936!important;border:1px solid #d6e9f1!important;border-radius:16px!important;box-shadow:0 8px 25px rgba(7,36,55,.06)!important}
+html body #services .service:before{content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:128px!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;border-bottom:1px solid #d8e6ed!important;background-color:#10384f!important}
+html body #services .service:nth-child(1):before,html body #services .service:nth-child(2):before,html body #services .service:nth-child(3):before,html body #services .service:nth-child(4):before,html body #services .service:nth-child(5):before,html body #services .service:nth-child(11):before{background-image:url("industrial.svg")!important}
+html body #services .service:nth-child(6):before,html body #services .service:nth-child(9):before{background-image:url("commercial.svg")!important}
+html body #services .service:nth-child(7):before{background-image:url("renewable-energy.svg")!important}
+html body #services .service:nth-child(8):before{background-image:url("telecom-engineering.svg")!important}
+html body #services .service:nth-child(10):before{background-image:url("residential.svg")!important}
+html body #services .service:nth-child(12):before{background-image:url("hero-engineering.svg")!important}
+html body #services .service:after{content:""!important;position:absolute!important;top:18px!important;left:20px!important;width:46px!important;height:46px!important;border:2px solid rgba(255,255,255,.8)!important;border-radius:14px!important;display:grid!important;place-items:center!important;color:#fff!important;font-size:22px!important;font-weight:800!important;z-index:3!important}
+html body #services .service:nth-child(1):after{content:"⚡"!important;background:linear-gradient(145deg,#087fc1,#0057a6)!important}
+html body #services .service:nth-child(2):after{content:"▦"!important;background:linear-gradient(145deg,#286f9c,#173e63)!important}
+html body #services .service:nth-child(3):after{content:"⏚"!important;background:linear-gradient(145deg,#16a87a,#087b64)!important}
+html body #services .service:nth-child(4):after{content:"ϟ"!important;background:linear-gradient(145deg,#ffb72b,#e56b00)!important}
+html body #services .service:nth-child(5):after{content:"◉"!important;background:linear-gradient(145deg,#20a65a,#08733e)!important}
+html body #services .service:nth-child(6):after{content:"⚡"!important;background:linear-gradient(145deg,#ff8b2c,#d84c15)!important}
+html body #services .service:nth-child(7):after{content:"☀"!important;background:linear-gradient(145deg,#ffca3a,#f17c00)!important}
+html body #services .service:nth-child(8):after{content:"⌁"!important;background:linear-gradient(145deg,#8d58e8,#4c2b9e)!important}
+html body #services .service:nth-child(9):after{content:"◒"!important;background:linear-gradient(145deg,#00a5b7,#00647a)!important}
+html body #services .service:nth-child(10):after{content:"⌂"!important;background:linear-gradient(145deg,#34a6e8,#2461b1)!important}
+html body #services .service:nth-child(11):after{content:"↻"!important;background:linear-gradient(145deg,#21a36f,#08734e)!important}
+html body #services .service:nth-child(12):after{content:"⌘"!important;background:linear-gradient(145deg,#0c8bb8,#1f4d83)!important}
+html body #services .service .num{position:relative!important;z-index:4!important;color:#7cb8d5!important;font-size:9px!important;letter-spacing:.12em!important}
+html body #services .service h3{position:relative!important;z-index:4!important;margin:0 0 7px!important;font-size:18px!important;line-height:1.25!important;color:#102936!important}
+html body #services .service p{position:relative!important;z-index:4!important;font-size:13px!important;line-height:1.6!important;color:#687c87!important;margin:0 0 16px!important}
+html body #services .service a{position:relative!important;z-index:4!important;font-size:11px!important;color:#0874a9!important}
+@media(max-width:600px){html body #services .service{padding-top:125px!important}html body #services .service:before{height:105px!important}}
