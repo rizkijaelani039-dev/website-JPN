@@ -1,14 +1,14 @@
-name: Build and deploy JPN website to GitHub Pages
+name: Build and Deploy JPN website
 on:
   push:
-    branches: [main]
+    branches: [main, build-production-website]
   workflow_dispatch:
 permissions:
   contents: read
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   deploy:
@@ -27,12 +27,12 @@ jobs:
           node-version: 20
           cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Build static site
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload Next.js artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
